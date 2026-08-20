@@ -1,0 +1,44 @@
+using System;
+
+List<double> numeros = new List<double> {};
+
+while(true) {
+	Console.WriteLine("Digite números flutuantes, para sair digite 0.");
+	Console.Write("Número flutuante: ");
+
+	double numero = Convert.ToDouble(Console.ReadLine());
+
+	if(numero == 0) {
+	    Console.WriteLine("");
+		Console.WriteLine("========== Resultado ==========");
+	    Console.WriteLine("");
+		
+		double soma = 0;
+		double maior = 0;
+		double menor = 0;
+		
+		foreach(var item in numeros){
+		    soma = soma + item;
+		}
+		
+		double divisao = soma / numeros.Count();
+		
+		foreach(var item in numeros){
+		    if(item > maior){
+		        maior = item;
+		    }else{
+		        menor = item;
+		    }
+		}
+		
+		Console.WriteLine($"Total de itens: {numeros.Count()}");
+		
+		Console.WriteLine($"Soma de todos os itens é: {soma}");
+		Console.WriteLine($"Divisão de todos os itens é: {divisao}");
+		Console.WriteLine($"O maior número digitado é: {maior}");
+		Console.WriteLine($"O menor número digitado é: {menor}");
+		
+		break;
+	}
+	numeros.Add(numero);
+}
